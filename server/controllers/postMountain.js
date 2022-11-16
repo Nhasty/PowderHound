@@ -1,7 +1,6 @@
-const axios = require ('axios');
+const axios = require('axios');
 require('dotenv').config();
-const Mountain = require('../db.js');
-
+const Mountain = require('../db');
 
 module.exports = async function postMountain(req, res) {
   try {
@@ -13,42 +12,42 @@ module.exports = async function postMountain(req, res) {
         windunit: 'MPH',
         tz: 'America/Denver',
         periods: '1',
-        dataset: 'full'
+        dataset: 'full',
       },
       headers: {
         'X-RapidAPI-Key': process.env.SNOWAPIKEY,
-        'X-RapidAPI-Host': 'foreca-weather.p.rapidapi.com'
-      }
+        'X-RapidAPI-Host': 'foreca-weather.p.rapidapi.com',
+      },
     };
     const snowOptions = {
-      params: {units: 'i', el: 'mid'},
+      params: { units: 'i', el: 'mid' },
       headers: {
         'X-RapidAPI-Key': process.env.SNOWAPIKEY,
-        'X-RapidAPI-Host': 'ski-resort-forecast.p.rapidapi.com'
-      }
-    }
+        'X-RapidAPI-Host': 'ski-resort-forecast.p.rapidapi.com',
+      },
+    };
     const snowOptions2 = {
-      params: {units: 'i'},
+      params: { units: 'i' },
       headers: {
         'X-RapidAPI-Key': 'dc2d81faecmsh6b85b6aec3548a3p1b5121jsn4adc81ce3045',
-        'X-RapidAPI-Host': 'ski-resort-forecast.p.rapidapi.com'
-      }
-    }
-    const weatherAPIResponse = await axios.get(`https://foreca-weather.p.rapidapi.com/forecast/15minutely/${locationId}`, weatherOptions)
-    const snowForecastAPIRespnse = await axios.get(`https://ski-resort-forecast.p.rapidapi.com/${resort}/forecast`, snowOptions)
-    const snowConditionsAPIResponse = await axios.get(`https://ski-resort-forecast.p.rapidapi.com/${resort}/snowConditions`, snowOptions2)
+        'X-RapidAPI-Host': 'ski-resort-forecast.p.rapidapi.com',
+      },
+    };
+    const weatherAPIResponse = await axios.get(`https://foreca-weather.p.rapidapi.com/forecast/15minutely/${locationId}`, weatherOptions);
+    const snowForecastAPIRespnse = await axios.get(`https://ski-resort-forecast.p.rapidapi.com/${resort}/forecast`, snowOptions);
+    const snowConditionsAPIResponse = await axios.get(`https://ski-resort-forecast.p.rapidapi.com/${resort}/snowConditions`, snowOptions2);
     const todaysForecast = {
       temperature: weatherAPIResponse.data.forecast[0].temperature,
       symbol: weatherAPIResponse.data.forecast[0].symbol,
       symbolPhrase: weatherAPIResponse.data.forecast[0].symbolPhrase,
       windDirString: weatherAPIResponse.data.forecast[0].windDirString,
       windSpeed: weatherAPIResponse.data.forecast[0].windSpeed,
-      windGust: weatherAPIResponse.data.forecast[0].windGust
+      windGust: weatherAPIResponse.data.forecast[0].windGust,
     }
-    const fiveDayForecast = snowForecastAPIRespnse.data
-    const snowConditions = snowConditionsAPIResponse.data
-    console.log(snowConditions)
-    console.log(fiveDayForecast.forecast5Day)
+    const fiveDayForecast = snowForecastAPIRespnse.data;
+    const snowConditions = snowConditionsAPIResponse.data;
+    console.log(snowConditions);
+    console.log(fiveDayForecast.forecast5Day);
     const newMountain = new Mountain({
       user,
       name,
@@ -56,11 +55,11 @@ module.exports = async function postMountain(req, res) {
       todaysForecast,
       fiveDayForecast,
       snowConditions,
-    })
+    });
     await newMountain.save();
-    res.sendStatus(201)
+    res.sendStatus(201);
   } catch (err) {
     console.log(err);
     res.sendStatus(500);
   }
-}
+};

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(`mongodb://localhost:27017/powderhound`);
+mongoose.connect('mongodb://localhost:27017/powderhound');
 
 const todaysSchema = new mongoose.Schema({
   temperature: String,
@@ -37,7 +37,7 @@ const conditionsSchema = new mongoose.Schema({
   botSnowDepth: String,
   freshSnowfall: String,
   lastSnowfallDate: String,
-})
+});
 
 const mountainSchema = new mongoose.Schema({
   user: {
@@ -56,5 +56,5 @@ const mountainSchema = new mongoose.Schema({
   snowConditions: conditionsSchema,
 });
 
-const Mountain = mongoose.model('Mountain', mountainSchema)
+const Mountain = mongoose.model('Mountain', mountainSchema);
 module.exports = Mountain;

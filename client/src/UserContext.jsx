@@ -8,5 +8,5 @@ export function UserContext({ children }) {
     user,
     setUser,
   };
-  return <SignInContext.Provider value={userValues} >{children}</SignInContext.Provider>
+  return <SignInContext.Provider value={userValues}>{children}</SignInContext.Provider>;
 }

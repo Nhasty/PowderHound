@@ -40,13 +40,13 @@ module.exports = {
   'Rhode Island': 'RI',
   'South Carolina': 'SC',
   'South Dakota': 'SD',
-  'Tennessee': 'TN',
+  Tennessee: 'TN',
   Texas: 'TX',
   Utah: 'UT',
   Vermont: 'VT',
   Virginia: 'VT',
   Washington: 'WA',
   'West Virginia': 'WV',
-  'Wisconsin': 'WI',
-  'Wyoming': 'WY'
-}
+  Wisconsin: 'WI',
+  Wyoming: 'WY',
+};

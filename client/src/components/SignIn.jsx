@@ -1,18 +1,18 @@
 import React, { useState, useContext } from 'react';
-import { SignInContext } from '../UserContext.jsx';
+import { SignInContext } from '../UserContext';
 
 export default function SignIn() {
   const { setUser } = useContext(SignInContext);
-  const [newUser, setNewUser] = useState('')
+  const [newUser, setNewUser] = useState('');
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        setUser(newUser)
+        setUser(newUser);
       }}
     >
-      <input type="text" value={newUser} onChange={(e) => setNewUser(e.target.value)} required/>
+      <input type="text" value={newUser} onChange={(e) => setNewUser(e.target.value)} required />
       <button type="submit">Sign In</button>
     </form>
-  )
+  );
 }
