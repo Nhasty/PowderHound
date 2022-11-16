@@ -1,12 +1,18 @@
 const express = require('express');
 const path = require('path');
 require('dotenv').config();
+const controllers = require('./controllers');
 
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use('/', express.static(path.join(__dirname, '../client/public')));
+app.get('/mountains', controllers.getMountains);
+app.get('/mountain', controllers.getMountain)
+//app.post('/mountains', controller.postMountain);
 
-const { PORT = 3001 } = process.env;
+const { PORT = 3000 } = process.env;
 app.listen(PORT, (err) => {
   if (err) {
     console.log(err);

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 mongoose.connect(`mongodb://localhost:27017/powderhound`);
 
-const todaysSchema = new mongooseSchema({
+const todaysSchema = new mongoose.Schema({
   temperature: String,
   symbolPhrase: String,
   windDirString: String,
@@ -40,6 +40,10 @@ const conditionsSchema = new mongoose.Schema({
 })
 
 const mountainSchema = new mongoose.Schema({
+  user: {
+    type: String,
+    unique: true
+  },
   name: {
     type: String,
     required: true,
