@@ -2,17 +2,17 @@ import React, { useState, useContext } from 'react';
 import reactLogo from './assets/react.svg';
 import { SignInContext } from './UserContext';
 import SignIn from './components/SignIn';
-import MyMountains from './components/MountainsDisplay/MyMountains'
-import { MyMountainsContext } from './components/MountainsDisplay/MyMountainsContext'
+import MyMountains from './components/mountainsDisplay/MyMountains';
+import { StyledMain, StyledH1 } from './sytles/App.styles';
 
 function App() {
-  const { user, setUser } = useContext(SignInContext);
+  const { user } = useContext(SignInContext);
   return (
-    <div>
-      <h1>Powder Hound</h1>
-      {user.length ? <MyMountainsContext><MyMountains /></MyMountainsContext> : <SignIn />}
-    </div>
+    <StyledMain>
+      <StyledH1>Powder Hound</StyledH1>
+      {user.length ? <MyMountains /> : <SignIn />}
+    </StyledMain>
   )
 }
 
-export default App
+export default App;

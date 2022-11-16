@@ -16,12 +16,10 @@ export function MyMountainsContext({ children }) {
       console.log(err);
     }
   };
-  useEffect(() => {
-    getUserMountains(user);
-  }, []);
   const mountainsValues = {
     userMountains,
     setUserMountains,
+    getUserMountains
   }
   return (
     <MountainsDataContext.Provider value={mountainsValues}>

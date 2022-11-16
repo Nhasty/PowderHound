@@ -3,18 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Powder Hound</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div id="root"></div>
     <script type="module">
-      import RefreshRuntime from "http://localhost:5174/@react-refresh";
+      import RefreshRuntime from "http://localhost:5173/@react-refresh";
       RefreshRuntime.injectIntoGlobalHook(window);
       window.$RefreshReg$ = () => {};
       window.$RefreshSig$ = () => (type) => type;
       window.__vite_plugin_react_preamble_installed__ = true;
     </script>
-    <script type="module" src="http://localhost:5174/src/main.jsx"></script>
+    <script type="module" src="http://localhost:5173/src/main.jsx"></script>
   </body>
 </html>
