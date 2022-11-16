@@ -9,6 +9,7 @@ import {
   MountainsSortLabel,
   MountainsSortSelect,
   MountainsList,
+  RowFlex
 } from '../../styles/mountainsDisplayStyles/MyMountains.styles';
 import MountainCard from './MountainCard';
 
@@ -21,8 +22,10 @@ export default function MyMountains() {
     <MountainsListContainer>
       <MountainsTitleContainer>
         <MountainHeader>Mountains</MountainHeader>
-        <MountainSearchAdd placeholder="Search or Add" />
-        <FaPlusSquare size={32} />
+        <RowFlex style={{verticalAlign: 'center'}}>
+          <MountainSearchAdd placeholder="Search or Add" />
+          <FaPlusSquare size={32} />
+        </RowFlex>
         <MountainsSortLabel>
           Sort
           <MountainsSortSelect name="mountains_sort">

@@ -10,6 +10,8 @@ export const MountainsTitleContainer = styled.div`
   padding: 50px 0px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 80%
 `;
 
 export const MountainHeader = styled.h2`
@@ -39,5 +41,10 @@ export const MountainsSortSelect = styled.select`
 `;
 
 export const MountainsList = styled.ul`
+  width: 80%;
+`;
 
+export const RowFlex = styled.div`
+  display: flex;
+  align-items: center;
 `;
