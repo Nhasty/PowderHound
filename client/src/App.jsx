@@ -1,13 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-
+import { useState, useContext } from 'react';
+import reactLogo from './assets/react.svg';
+import { SignInContext } from './UserContext.jsx';
+import SignIn from './components/SignIn.jsx';
+import MyMountains from './components/MountainsDisplay/MyMountains.jsx'
+import { MyMountainsContext } from './components/MountainsDisplay/MyMountainsContext.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const { user, setUser } = useContext(SignInContext);
   return (
-    <div className="App">
-      HELLO WORLD
+    <div>
+      <h1>Powder Hound</h1>
+      {user.length ? <MyMountainsContext><MyMountains /></MyMountainsContext> : <SignIn />}
     </div>
   )
 }
