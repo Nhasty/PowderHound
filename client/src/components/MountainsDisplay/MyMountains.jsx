@@ -5,5 +5,5 @@ export default function MyMountains() {
     <div>
       Mountains
     </div>
-  )
+  );
 }
