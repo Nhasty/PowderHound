@@ -3,8 +3,10 @@ const axios = require('axios');
 require('dotenv').config();
 const states = require('../states.js')
 
-module.exports.getMountains = function (req, res) {
-  Mountain.find({ user: req.query })
+module.exports.getMountains = async function (req, res) {
+  const userMountains = await Mountain.find(req.query);
+  console.log(userMountains)
+  res.status(200).json(userMountains)
 }
 
 module.exports.getMountain = async function (req, res) {
@@ -29,7 +31,7 @@ module.exports.getMountain = async function (req, res) {
       headers: {
         'X-RapidAPI-Key': process.env.SNOWAPIKEY,
         'X-RapidAPI-Host': 'foreca-weather.p.rapidapi.com'
-  }
+      }
     }
     const weatherAPIResponse = await axios.get(`https://foreca-weather.p.rapidapi.com/location/search/${resort}`, weatherOptions)
     res.status(200).json({

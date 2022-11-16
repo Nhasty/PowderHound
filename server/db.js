@@ -7,7 +7,7 @@ const todaysSchema = new mongoose.Schema({
   symbolPhrase: String,
   windDirString: String,
   windSpeed: String,
-  WindGust: String,
+  windGust: String,
 }, { timestamps: true });
 
 const littleSchema = new mongoose.Schema({
@@ -27,7 +27,7 @@ const futureSchema = new mongoose.Schema({
 });
 
 const fiveDaySchema = new mongoose.Schema({
-  forcast5Day: [futureSchema],
+  forecast5Day: [futureSchema],
   summary3Day: String,
   summaryDays4To6: String,
 });
@@ -35,14 +35,13 @@ const fiveDaySchema = new mongoose.Schema({
 const conditionsSchema = new mongoose.Schema({
   topSnowDepth: String,
   botSnowDepth: String,
-  freshSnowFall: String,
+  freshSnowfall: String,
   lastSnowfallDate: String,
 })
 
 const mountainSchema = new mongoose.Schema({
   user: {
     type: String,
-    unique: true
   },
   name: {
     type: String,

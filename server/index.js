@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', express.static(path.join(__dirname, '../client/public')));
 app.get('/mountains', controllers.getMountains);
 app.get('/mountain', controllers.getMountain)
-//app.post('/mountains', controller.postMountain);
+app.post('/mountains', controllers.postMountain);
 
 const { PORT = 3000 } = process.env;
 app.listen(PORT, (err) => {
