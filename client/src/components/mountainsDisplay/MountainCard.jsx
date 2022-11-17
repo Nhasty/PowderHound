@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { FaWind } from 'react-icons/fa';
+import { parse, format } from 'date-fns';
 import {
   MountainCardContainer,
   AlwaysDisplayed,
   TemperatureDisplay,
   ResortDisplay,
   CardColumnFlex,
+  CardRowFlex,
+  BaseDepthDisplay,
+  SnowfallDisplay,
+  SmallText,
 } from '../../styles/mountainsDisplayStyles/MountainCard.styles';
 
 export default function MountainCard({ mountain }) {
@@ -16,7 +21,7 @@ export default function MountainCard({ mountain }) {
         <ResortDisplay>
           {mountain.name}
         </ResortDisplay>
-        <CardColumnFlex>
+        <CardColumnFlex changeWidth="25%">
           <TemperatureDisplay>
             {mountain.todaysForecast.temperature}
             &deg;F
@@ -32,12 +37,30 @@ export default function MountainCard({ mountain }) {
             {mountain.todaysForecast.windDirString}
           </div>
         </CardColumnFlex>
-        <CardColumnFlex justify="flex-end">
-          {mountain.snowConditions.botSnowDepth}
-          {mountain.snowConditions.topSnowDepth}
-          {mountain.snowConditions.lastSnowfallDate}
-          {mountain.snowConditions.freshSnowfall}
-        </CardColumnFlex>
+        <CardRowFlex>
+          <CardColumnFlex>
+            <BaseDepthDisplay>
+              Base:&nbsp;
+              <sub>
+                {mountain.snowConditions.botSnowDepth}
+              </sub>
+              &#92;
+              <sup>
+                {mountain.snowConditions.topSnowDepth}
+              </sup>
+            </BaseDepthDisplay>
+            <SmallText>
+              recent snow:
+            </SmallText>
+            {format(parse(mountain.snowConditions.lastSnowfallDate, 'dd MMM yyyy', new Date()), 'PP')}
+          </CardColumnFlex>
+          <SnowfallDisplay>
+            {mountain.snowConditions.freshSnowfall.replace('in', '"')}
+            <SmallText>
+              Today
+            </SmallText>
+          </SnowfallDisplay>
+        </CardRowFlex>
       </AlwaysDisplayed>
     </MountainCardContainer>
   )

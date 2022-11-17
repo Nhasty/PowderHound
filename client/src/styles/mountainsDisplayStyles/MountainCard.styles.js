@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
-export const MountainCardContainer = styled.article`
+export const MountainCardContainer = styled.li`
   display: flex;
   flex-direction: column;
+  margin-bottom: 5px;
 `;
 
 export const AlwaysDisplayed = styled.section`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  border: 2px solid #003153;
+  gap: 8%
 `;
 
 export const TemperatureDisplay = styled.section`
@@ -17,13 +19,29 @@ export const TemperatureDisplay = styled.section`
 `;
 
 export const ResortDisplay = styled.section`
-  font-size: 24px;
-  width: 40%
+  font-size: 32px;
+  width: 35%
 `;
 
 export const CardColumnFlex = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content ${(props) => props.justify || 'flex-start'};
-  width: 25%;
+  width: ${(props) => props.changeWidth};
+`;
+export const CardRowFlex = styled.section`
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+`;
+export const BaseDepthDisplay = styled.div`
+
+`;
+
+export const SnowfallDisplay = styled.div`
+  align-self: center;
+  font-size: 36px;
+`;
+
+export const SmallText = styled.div`
+  font-size: 14px;
 `;
