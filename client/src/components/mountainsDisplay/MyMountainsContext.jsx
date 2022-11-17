@@ -5,6 +5,11 @@ export const MountainsDataContext = createContext();
 
 export function MyMountainsContext({ children }) {
   const [userMountains, setUserMountains] = useState([]);
+  const [newUserMountain, setNewUserMountain] = useState({
+    location: [],
+    mountainConditions: {},
+  });
+  const [mountainFound, setMountainFound] = useState(false);
 
   const getUserMountains = async (newUser) => {
     try {
@@ -17,7 +22,11 @@ export function MyMountainsContext({ children }) {
   const mountainsValues = {
     userMountains,
     setUserMountains,
-    getUserMountains
+    getUserMountains,
+    newUserMountain,
+    setNewUserMountain,
+    mountainFound,
+    setMountainFound,
   }
   return (
     <MountainsDataContext.Provider value={mountainsValues}>

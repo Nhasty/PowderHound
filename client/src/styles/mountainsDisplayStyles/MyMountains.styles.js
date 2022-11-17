@@ -21,7 +21,7 @@ export const MountainHeader = styled.h2`
   margin: 0px 50px 0px 0px;
 `;
 
-export const MountainSearchAdd = styled.input`
+export const MountainAdd = styled.input`
   height: 28px;
   width: 185px;
   align-self: center;
@@ -46,7 +46,15 @@ export const MountainsList = styled.ul`
   padding: 0px;
 `;
 
-export const RowFlex = styled.div`
+export const RowFlex = styled.form`
   display: flex;
   align-items: center;
+  vertical-align: center;
+`;
+
+export const NewMountainButton = styled.button`
+  border: none;
+  width: 32px;
+  height: 32px;
+  background-color: #C6E6FB;
 `;
