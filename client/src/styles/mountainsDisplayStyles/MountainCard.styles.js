@@ -36,6 +36,7 @@ export const CardRowFlex = styled.section`
   display: flex;
   justify-content: space-between;
   width: 20%;
+  justify-self: center;
 `;
 export const BaseDepthDisplay = styled.div`
 
