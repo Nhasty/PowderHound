@@ -5,7 +5,6 @@ const states = require('../states');
 
 module.exports.getMountains = async function (req, res) {
   const userMountains = await Mountain.find(req.query);
-  console.log(userMountains);
   res.status(200).json(userMountains);
 };
 

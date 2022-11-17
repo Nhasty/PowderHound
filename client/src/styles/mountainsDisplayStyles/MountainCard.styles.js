@@ -24,19 +24,23 @@ export const TemperatureDisplay = styled.section`
 
 export const ResortDisplay = styled.section`
   font-size: 32px;
-  width: 35%
+  width: 35%;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const CardColumnFlex = styled.section`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: ${(props) => props.changeWidth};
 `;
 export const CardRowFlex = styled.section`
   display: flex;
   justify-content: space-between;
-  width: 20%;
+  width: ${(props) => props.userWidth};
   justify-self: center;
+  grid-area: conditions;
 `;
 export const BaseDepthDisplay = styled.div`
 

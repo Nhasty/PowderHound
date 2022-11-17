@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaAngleDoubleDown, FaAngleDoubleUp } from 'react-icons/fa'
 import CurrentWeather from '../card/CurrentWeather';
 import CurrentConditions from '../card/CurrentConditions';
 import FiveDay from '../card/FiveDay';
@@ -15,6 +16,7 @@ export default function MountainCard({ mountain }) {
       <AlwaysDisplayed>
         <ResortDisplay>
           {mountain.name}
+          {isClicked ? <FaAngleDoubleUp size={20} /> : <FaAngleDoubleDown size={20} />}
         </ResortDisplay>
         <CurrentWeather todaysForecast={mountain.todaysForecast} />
         <CurrentConditions snowConditions={mountain.snowConditions} />

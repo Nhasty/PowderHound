@@ -7,6 +7,14 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+const logger = (req, res, next) => {
+  console.log(`A ${req.method} request was made to the ${req.url} endpoint`);
+  if (req.body && Object.keys(req.body).length) {
+    console.log(`with a payload of ${JSON.stringify(req.body)}`);
+  }
+  next();
+};
+app.use(logger);
 app.use('/', express.static(path.join(__dirname, '../client/public')));
 app.get('/mountains', controllers.getMountains);
 app.get('/mountain', controllers.getMountain);

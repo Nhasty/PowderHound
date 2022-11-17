@@ -7,9 +7,10 @@ import {
   SmallText,
   SnowfallDisplay,
 } from '../../styles/mountainsDisplayStyles/MountainCard.styles';
-export default function CurrentConditions({ snowConditions }) {
+export default function CurrentConditions({ snowConditions, mountainFound }) {
+  const found = !!mountainFound;
   return (
-    <CardRowFlex>
+    <CardRowFlex userWidth={found ? '50%' : '20%'}>
       <CardColumnFlex>
         <BaseDepthDisplay>
           Base:&nbsp;

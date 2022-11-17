@@ -29,7 +29,7 @@ export default function MyMountains() {
           e.preventDefault();
           axios.get(`/mountain?resort=${newMountain}`)
             .then((getMountain) => {
-              console.log(getMountain.data)
+              console.log(getMountain.data);
               setNewUserMountain(getMountain.data);
               setMountainFound(true);
               setNewMountain('');

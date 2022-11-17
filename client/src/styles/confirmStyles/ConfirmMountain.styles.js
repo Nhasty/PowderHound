@@ -6,11 +6,12 @@ export const ConfirmModal = styled.form`
   padding: 20px;
   background: #C6E6FB;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 4fr 1fr;
+  grid-template-columns: 20px 1fr 1fr 20px;
+  grid-template-rows: 20px 4fr 1fr;
   grid-template-areas:
-    "radio conditons"
-    "button button";
+    ". . . close"
+    "radio radio conditions condtions"
+    "button button button button";
   justify-content: space-between;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
@@ -31,6 +32,7 @@ export const ConfirmList = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  grid-area: radio;
 `;
 
 export const ConfirmButton = styled.button`
@@ -42,4 +44,11 @@ export const ConfirmButton = styled.button`
   font-family: 'Audiowide', cursive;
   color: #003153;
 }
+`;
+
+export const ProcessingWarning = styled.section`
+  position: absolute;
+  text-align: center;
+  color: green;
+  width: 100%;
 `;
