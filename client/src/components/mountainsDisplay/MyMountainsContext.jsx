@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useMemo } from 'react';
 import axios from 'axios';
 
 export const MountainsDataContext = createContext();
@@ -19,7 +19,8 @@ export function MyMountainsContext({ children }) {
       console.log(err);
     }
   };
-  const mountainsValues = {
+
+  const mountainsValues = useMemo(() => ({
     userMountains,
     setUserMountains,
     getUserMountains,
@@ -27,7 +28,7 @@ export function MyMountainsContext({ children }) {
     setNewUserMountain,
     mountainFound,
     setMountainFound,
-  }
+  }), [userMountains, newUserMountain, mountainFound]);
   return (
     <MountainsDataContext.Provider value={mountainsValues}>
       {children}
