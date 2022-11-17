@@ -4,12 +4,16 @@ export const MountainCardContainer = styled.li`
   display: flex;
   flex-direction: column;
   margin-bottom: 5px;
+  background-color: #448ee4;
+  border-radius: 8px;
+
 `;
 
 export const AlwaysDisplayed = styled.section`
   display: flex;
   align-items: center;
   border: 2px solid #003153;
+  border-radius: 8px;
   gap: 8%
 `;
 

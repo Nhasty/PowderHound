@@ -7,11 +7,12 @@ export const MountainsListContainer = styled.div`
 `;
 
 export const MountainsTitleContainer = styled.div`
-  padding: 50px 0px;
+  padding: 50px 0px 0px 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 80%
+  width: 80%;
+  border-bottom: 2px solid #003153;
 `;
 
 export const MountainHeader = styled.h2`
@@ -41,7 +42,8 @@ export const MountainsSortSelect = styled.select`
 `;
 
 export const MountainsList = styled.ul`
-  width: 80%;
+  width: 75%;
+  padding: 0px;
 `;
 
 export const RowFlex = styled.div`

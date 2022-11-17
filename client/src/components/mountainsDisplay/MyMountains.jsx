@@ -23,7 +23,7 @@ export default function MyMountains() {
       <MountainsTitleContainer>
         <MountainHeader>Mountains</MountainHeader>
         <RowFlex style={{verticalAlign: 'center'}}>
-          <MountainSearchAdd placeholder="Search or Add" />
+          <MountainSearchAdd placeholder="Add" />
           <FaPlusSquare size={32} />
         </RowFlex>
         <MountainsSortLabel>
