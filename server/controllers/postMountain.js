@@ -29,7 +29,7 @@ module.exports = async function postMountain(req, res) {
     const snowOptions2 = {
       params: { units: 'i' },
       headers: {
-        'X-RapidAPI-Key': 'dc2d81faecmsh6b85b6aec3548a3p1b5121jsn4adc81ce3045',
+        'X-RapidAPI-Key': process.env.SNOWAPIKEY,
         'X-RapidAPI-Host': 'ski-resort-forecast.p.rapidapi.com',
       },
     };
