@@ -5,7 +5,10 @@ export const MountainCardContainer = styled.li`
   flex-direction: column;
   margin-bottom: 5px;
   border-radius: 8px;
-
+  --arrow-color: #003153;
+    &:hover{
+      --arrow-color: #F5CA7B;
+    }
 `;
 
 export const AlwaysDisplayed = styled.article`
@@ -53,4 +56,8 @@ export const SnowfallDisplay = styled.div`
 
 export const SmallText = styled.div`
   font-size: 14px;
+`;
+
+export const ArrowContainer = styled.div`
+  color: var(--arrow-color);
 `;
