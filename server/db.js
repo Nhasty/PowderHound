@@ -56,5 +56,6 @@ const mountainSchema = new mongoose.Schema({
   snowConditions: conditionsSchema,
 });
 
+mountainSchema.index({ user: 1, locationId: 1 }, { unique: true });
 const Mountain = mongoose.model('Mountain', mountainSchema);
 module.exports = Mountain;

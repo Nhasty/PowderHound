@@ -1,6 +1,6 @@
 const { CronJob } = require('cron');
 
-const dailySnow = new CronJob('*/1 * * * * *', function() {
+const dailySnow = new CronJob('4 * * * * *', function() {
   console.log('test')
 });
 

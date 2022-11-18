@@ -1,4 +1,8 @@
+/* eslint-disable func-names */
+/* eslint-disable space-before-function-paren */
+/* eslint-disable prefer-arrow-callback */
 const axios = require('axios');
+const { CronJob } = require('cron');
 require('dotenv').config();
 const Mountain = require('../db');
 
@@ -13,10 +17,9 @@ const updateAllNames = async function () {
       },
     };
     console.log([uniqueNames]);
-    for (const name of uniqueNames) {
-      await setTimeout(() => {console.log(name)}, 1000);
-      console.log(name)
-    }
+    uniqueNames.forEach(function(name, index) {
+
+    })
     // eslint-disable-next-line func-names, prefer-arrow-callback
     // uniqueNames.forEach(function (name) {
     //   axios.get(`https://ski-resort-forecast.p.rapidapi.com/${name}/snowConditions`, axiosOptions)
