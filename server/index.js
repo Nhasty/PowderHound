@@ -22,7 +22,7 @@ app.use(logger);
 cronJobs.dailySnow.start();
 cronJobs.weatherUpdate.start();
 
-app.use('/', express.static(path.join(__dirname, '../client/public')));
+app.use('/', express.static(path.join(__dirname, '../client/dist')));
 app.get('/mountains', controllers.getMountains);
 app.get('/mountain', controllers.getMountain);
 app.post('/mountains', controllers.postMountain);

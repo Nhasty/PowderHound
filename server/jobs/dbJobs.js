@@ -63,7 +63,8 @@ const updateAllWeather = async function () {
     const uniqueIds = await Mountain.find({}).distinct('locationId');
     for (const locationId of uniqueIds) {
       const weatherAPIResponse = await axios.get(`https://foreca-weather.p.rapidapi.com/forecast/15minutely/${locationId}`, weatherOptions);
-      await Mountain.updateMany({ locationId }, { todaysForecast: weatherAPIResponse.data });
+      console.log(weatherAPIResponse.data)
+      await Mountain.updateMany({ locationId }, { todaysForecast: weatherAPIResponse.data.forecast[0] });
     }
     return 'success';
   } catch (err) {
