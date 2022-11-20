@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React, { useState, useContext } from 'react';
 import { FaPlusSquare } from 'react-icons/fa';
 import axios from 'axios';
@@ -21,8 +22,8 @@ export default function MyMountains() {
   const [sorter, setSorter] = useState('Fresh Snow');
   const mountainsListElements = userMountains.sort((a, b) => {
     if (sorter === 'Fresh Snow') {
-      const aSnow = Number(a.snowConditions.freshSnowfall.replace('in', ''));
-      const bSnow = Number(b.snowConditions.freshSnowfall.replace('in', ''));
+      const aSnow = a.snowConditions.freshSnowfall ? Number(a.snowConditions.freshSnowfall.replace('in', '')) : 0;
+      const bSnow = b.snowConditions.freshSnowfall ? Number(b.snowConditions.freshSnowfall.replace('in', '')) : 0;
       if (aSnow < bSnow) {
         return 1;
       }

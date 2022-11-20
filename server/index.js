@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 require('dotenv').config();
 const controllers = require('./controllers');
-const dailySnow = require('./jobs/cronJobs');
+const cronJobs = require('./jobs/cronJobs');
 
 const app = express();
 
@@ -19,7 +19,8 @@ app.use(logger);
 
 // Update data in db on a schedule
 
-dailySnow.start();
+cronJobs.dailySnow.start();
+cronJobs.weatherUpdate.start();
 
 app.use('/', express.static(path.join(__dirname, '../client/public')));
 app.get('/mountains', controllers.getMountains);

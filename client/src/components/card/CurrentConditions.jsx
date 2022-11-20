@@ -25,10 +25,10 @@ export default function CurrentConditions({ snowConditions, mountainFound }) {
         <SmallText>
           recent snow:
         </SmallText>
-        {format(parse(snowConditions.lastSnowfallDate, 'dd MMM yyyy', new Date()), 'PP')}
+        {!(snowConditions.lastSnowfallDate === '—') ? format(parse(snowConditions.lastSnowfallDate, 'dd MMM yyyy', new Date()), 'PP') : 'N/A'}
       </CardColumnFlex>
       <SnowfallDisplay>
-        {snowConditions.freshSnowfall.replace('in', '"')}
+        {snowConditions.freshSnowfall ? snowConditions.freshSnowfall.replace('in', '"') : '0"'}
         <SmallText>
           Today
         </SmallText>
